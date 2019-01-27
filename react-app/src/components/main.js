@@ -10,6 +10,7 @@ const Main = () => (
 			<Switch>
 				<Route exact path="/" component={OrganizationsPage} />
 				<Route exact path="/main" component={MainPage} />
+				<Route exact path="/main" component={OrganizationsPage} />
 			</Switch>
 	</HashRouter>	
 )
