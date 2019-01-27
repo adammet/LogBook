@@ -75,6 +75,57 @@ class UsersManager {
 		console.log(success);
 		return success ? {success, name, teams, organizations, tasks} : {success, reason};
 	}
+
+	static async createUser({email, name, password}) {
+		let connection;
+		let reason;
+		let success = false;
+
+		try {
+			if (!email) {
+				throw new Error("No email");
+			}
+			if (!name) {
+				throw new Error("No name");
+			}
+			if (!password) {
+				throw new Error("No password");
+			}
+
+			var config = {
+				host: "sql3.freemysqlhosting.net",
+				user: "sql3275907",
+				password: "ZQndVahfzs",
+				database: "sql3275907",
+				port: 3306
+			};
+
+			await mysql.createConnection(config).then(async function(conn) {
+				connection = conn;
+				var res = await connection.query("INSERT INTO Users (email, name, password) VALUES ('" + email + "', '" + name + "', '" + password + "')");
+				if (res) {
+					success = true;
+				}
+			}).catch(function(err) {
+				throw err;
+			});
+		} catch (err) {
+			success = false;
+			reason = err;
+			console.log(err);
+		} finally {
+			if (connection) {
+				try {
+					connection.end();
+				} catch (err) {
+					console.error(err);
+				}
+			}
+		}
+		console.log(success);
+		return success ? {success} : {success, reason};
+	}
+
 }
 
 

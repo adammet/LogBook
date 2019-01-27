@@ -57,6 +57,14 @@ class LogBookAPI {
 		return {response, code};
 	}
 
+	static async createUser({email, name, password}) {
+		let {success, reason} = await UsersManager.createUser({email, name, password});
+		let code = success ? 200 : 404;
+		let response = success ? {success} : reason;
+
+		return {response, code};
+	}
+
 
 }
 

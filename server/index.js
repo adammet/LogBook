@@ -75,3 +75,11 @@ app.get('/getTeamTasks', function (req, res) {
 		res.status(404).send(err);
 	});
 });
+
+app.post('/createUser', function (req, res) {
+	LogBookAPI.createUser(req.body).then(({response, code}) => {
+		res.status(code).send(response);
+	}).catch((err) => {
+		res.status(404).send(err);
+	});
+});
