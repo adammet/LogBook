@@ -118,8 +118,14 @@ class LogBookAPI {
 		return {response, code};
 	}
 
+	//TODO for login
+	static async getUserPassword({email}) {
+		let {success, reason, password} = await UsersManager.getUserPassword({email});
+		let code = success ? 200 : 404;
+		let response = success ? {password} : reason;
 
-
+		return {response, code};
+	}
 }
 
 module.exports = LogBookAPI;

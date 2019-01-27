@@ -137,3 +137,12 @@ app.post('/createTask', function (req, res) {
 	});
 });
 
+//TODO for login
+app.get('getUserPassword', function (req, res) {
+	LogBookAPI.getUserPassword(req.body).then(({response, code}) => {
+		res.status(code).send(response);
+	}).catch((err) => {
+		res.status(404).send(err);
+	});
+});
+
