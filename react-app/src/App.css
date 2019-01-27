@@ -106,10 +106,9 @@
   color: white;
 }
 
-.organization_button {
+.standard_button {
     background: white;
     font-family: 'Roboto', sans-serif;
-    font-size: 100%;
     border: solid;
     border-radius: 8px;
     color: black;
@@ -120,7 +119,7 @@
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
-.organization_button:hover{
+.standard_button:hover{
     background-color: #555555;
     color: white;
 }
@@ -148,4 +147,9 @@
     top: 50%;
     margin-left: -150px;
     margin-top: -150px;
+}
+
+.headerfont{
+    font-size: 35px;
+    font-family: 'Roboto', sans-serif;
 }
