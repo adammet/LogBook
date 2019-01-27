@@ -10,7 +10,7 @@ class MainPage extends Component {
   <header>
   <ul className="home-main-nav">
         <div className="home-vertical">
-            <li><Link to="/organizations" > Organizations</Link></li>
+            <li><Link to="/organizations" > HomePage</Link></li>
             <li><Link to="/tasks"> Tasks </Link></li>
             <li><Link to="/user"> User </Link></li>
             <li><Link to="/"> LogOut </Link></li>
