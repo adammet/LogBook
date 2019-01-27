@@ -1,5 +1,5 @@
 const UsersManager = require('./UsersManager.js');
-const TasksManager = require('./TasksManager.js');
+const TasksManager = require('./TaskManager.js');
 
 class LogBookAPI {
 
