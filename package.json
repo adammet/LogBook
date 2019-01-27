@@ -1,0 +1,22 @@
+{
+  "name": "logbook",
+  "version": "1.0.0",
+  "description": "Task tracking service that allows students to see the contributions made and ensure group work is equitable",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adammet/LogBook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adammet/LogBook/issues"
+  },
+  "homepage": "https://github.com/adammet/LogBook#readme",
+  "dependencies": {
+    "mysql": "^2.16.0"
+  }
+}
