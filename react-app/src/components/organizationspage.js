@@ -42,7 +42,7 @@ class OrganizationsPage extends Component {
             <div className="column">
             <div className="org"><h2>Your Groups at Google</h2></div>
               <div className="box">
-                <Link to="/organizations/google">
+                <Link to="/grouppage/g-pm">
                   <img src="https://blog.hubspot.com/hubfs/image8-2.jpg"></img>
                 <div className="detail">
                 <div className="text"> Project Management</div>
@@ -50,7 +50,7 @@ class OrganizationsPage extends Component {
                 </Link>
               </div>
               <div className="box">
-                <Link to="/organizations/microsoft">
+                <Link to="/grouppage/g-hr">
                   <img src="https://blog.hubspot.com/hubfs/image8-2.jpg"></img>
                     <div className="detail">
                       <div className="text"> Human Resources </div>
