@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-var org_array = ['Google', 'Microsoft', 'UBC 2019 W1 CPSC 343'];
+
+var org_array = ['Google', 'Microsoft', 'UBC-CPSC-343'];
+
 var num_of_orgs = org_array.length;
 
 function generatebuttons() {
@@ -19,8 +21,6 @@ function generatenextbutton(counter){
     var link_name =  button_name.toLowerCase()
     return (<div> <div className="divider"/> <button className='standard_button'><Link to={link_name}> {button_name} </Link></button> </div>);
 }
-
-
 
 class OrganizationsPage extends Component {
     render() {
@@ -132,6 +132,22 @@ class OrganizationsPage extends Component {
             </header>
         )
     }
+        if (this.props.match.params.id == "ubc-cpsc-343"){
+            return (<header>
+                    <ul className="home-main-nav">
+                        <div className="home-vertical">
+                            <li><Link to="/organizations/main" > Organizations</Link></li>
+                            <li><Link to="/tasks"> Tasks </Link></li>
+                            <li><Link to="/settings"> Settings </Link></li>
+                            <li><Link to="/"> LogOut </Link></li>
+                        </div>
+                    </ul>
+
+                    <h1> UBC CPSC 343 </h1>
+
+                </header>
+            )
+        }
     }
 }
 
