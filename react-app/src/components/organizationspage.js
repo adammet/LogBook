@@ -15,7 +15,9 @@ function generatebuttons() {
 }
 //
 function generatenextbutton(counter){
-    return (<div> <div className="divider"/> <button className='standard_button'><Link to="organizations/main"> {org_array[counter]} </Link></button> </div>);
+    var button_name = String(org_array[counter])
+    var link_name =  button_name.toLowerCase()
+    return (<div> <div className="divider"/> <button className='standard_button'><Link to={link_name}> {button_name} </Link></button> </div>);
 }
 
 
