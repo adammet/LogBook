@@ -52,3 +52,6 @@ class UsersManager {
 		return {success, reason, name, email, teams, organizations, tasks};
 	}
 }
+
+
+module.exports = UsersManager;
