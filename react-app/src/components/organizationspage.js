@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 class OrganizationsPage extends Component {
 
     render() {
 
         return(
-        <h1>Hello World</h1>
+            <header>
+        <h1>All Organizations</h1>
+            </header>
         )
     }
 }
