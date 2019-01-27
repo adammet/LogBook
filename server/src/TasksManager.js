@@ -41,8 +41,6 @@ class TasksManager {
 			}).catch(function(err) {
 				throw err;
 			});
-
-			
 		} catch (err) {
 			success = false;
 			reason = err;
