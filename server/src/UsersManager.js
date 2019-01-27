@@ -27,9 +27,12 @@ class UsersManager {
 
 			con.query(sql, function (err, result) {
 				if (err) throw err;
-				return result;
+				success = true;
+				name = result.name;
+				teams = result.teams;
+				organizations = result.organizations;
+				tasks = result.tasks;
 			});
-
 		} catch (err) {
 			success = false;
 			reason = err;
