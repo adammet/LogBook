@@ -13,10 +13,11 @@ class UsersManager {
 
 		try {
 			var con = mysql.createConnection({
-				host: "db4free.net:3306",
-				user: "admin_2019",
-				password: "admin1234",
-				database: "logbook_1"
+				host: "sql3.freemysqlhosting.net",
+				user: "sql3275907",
+				password: "ZQndVahfzs",
+				database: "sql3275907",
+				port: 3306
 			});
 
 			con.connect(function(err) {
