@@ -7,8 +7,8 @@ class UsersManager {
 		let reason;
 		let success = false;
 		let name;
-		let teams;
-		let organizations;
+		let teams = [];
+		let organizations = [];
 		let tasks;
 
 		try {
@@ -20,15 +20,40 @@ class UsersManager {
 				port: 3306
 			};
 
-			var sql = "SELECT * FROM Users WHERE email='" + email + "'";
-
-			await mysql.createConnection(config).then(function(conn) {
+			await mysql.createConnection(config).then(async function(conn) {
 				connection = conn;
-				var result = connection.query(sql);
-				return result;
-			}).then(function(rows) {
-				success = true;
-				name = rows[0]['name'];
+				var res1 = await connection.query("SELECT * FROM Users WHERE email='" + email + "'");
+				var res2 = await connection.query("SELECT team FROM TeamMembers WHERE email='" + email + "'");
+				var res3 = await connection.query("SELECT organization FROM OrganizationMembers WHERE email='" + email +"'");
+				return {res1, res2, res3};
+			}).then(async function(res) {
+				let {res1, res2, res3} = res;
+				console.log(res2);
+				console.log(res2[0]);
+				console.log(res2[0]['team']);
+				if (res1) {
+					success = true;
+					name = res1[0]['name'];
+				} else {
+					success = false;
+					throw new Error("User not found");
+				}
+				for (var i = 0; i < res2.length; i++) {
+					console.log(res2[i]);
+					var r = await connection.query("SELECT name FROM Team WHERE team_id = " + res2[i]['team']);
+					console.log(r);
+					if (r) {
+						teams.push(r[0]['name']);
+					}
+				}
+				for (var i = 0; i < res3.length; i++) {
+					console.log(res3[i]);
+					var r = await connection.query("SELECT name FROM Organization WHERE org_id = " + res3[i]['organization']);
+					console.log(r);
+					if (r) {
+						organizations.push(r[0]['name']);
+					}
+				}
 			}).catch(function(err) {
 				throw err;
 			});
