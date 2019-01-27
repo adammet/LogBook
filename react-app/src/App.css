@@ -20,7 +20,7 @@
 {
  margin-bottom: 10%;
  font-size: 40px;
- font-family: "Trebuchet MS", Helvetica, sans-serif;
+ font-family: 'Roboto', sans-serif;
 }
 
 .login-page
@@ -34,7 +34,7 @@
 .form
 {
 	position: relative;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
 	z-index: 1;
 	background: white;
 	max-width: 60%;
@@ -67,7 +67,7 @@
 
 .form button a
 {
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
   color: black;
   
 
@@ -89,7 +89,7 @@
   color: black;
   text-decoration: none;
   display: flex;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
   font-size: 100%;
   font-weight: bold;
   margin: 15px;
@@ -108,14 +108,22 @@
 
 .organization_button {
     background: white;
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 100%;
     border: solid;
     border-radius: 8px;
     color: black;
     font-size: 32px;
-    text-align: right;
+    text-align: center;
+    padding: 15px 15px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
+.organization_button:hover{
+    background-color: #555555;
+    color: white;
+}
+
 /* for centering block level */
 .center-me {
     margin: 0 auto;
