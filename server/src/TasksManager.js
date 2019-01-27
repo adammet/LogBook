@@ -31,7 +31,13 @@ class TasksManager {
 				return result;
 			}).then(function(rows) {
 				success = true;
-				console.log(rows);
+				description = rows[0]['description'];
+				due_date = rows[0]['due_date'];
+				status = rows[0]['status'];
+				weight = rows[0]['weight'];
+				name = rows[0]['name'];
+				team = rows[0]['team'];
+				assigned = rows[0]['assigned'];
 			}).catch(function(err) {
 				throw err;
 			});
