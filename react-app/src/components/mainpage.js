@@ -43,7 +43,7 @@ class MainPage extends Component {
       <header>
       <ul className="home-main-nav">
             <div className="home-vertical">
-                <li><Link to="/organizations" > Organizations</Link></li>
+                <li><Link to="/organizations/main" > Organizations</Link></li>
                 <li><Link to="/tasks"> Tasks </Link></li>
                 <li><Link to="/settings"> Settings </Link></li>
                 <li><Link to="/"> LogOut </Link></li>
@@ -53,7 +53,7 @@ class MainPage extends Component {
             <div className="row">
 
             <div className="column">
-            <div className="org"><h2>Your Organizations</h2></div>
+            <div className="org"><h2>Top Organizations</h2></div>
               <div className="box">
                 <Link to="/organizations/google">
                   <img src="https://blog.hubspot.com/hubfs/image8-2.jpg"></img>
@@ -80,18 +80,30 @@ class MainPage extends Component {
             
               <div className="box">
 
-               <h2>A Description List</h2>
+               <h2>Top Tasks</h2>
 
-            <dl>
-              <dt>Verify project budget</dt>
-              <dd>- due January 28th, 2019</dd>
-              <dt>Update project plan</dt>
-              <dd>- due January 29t, 2019</dd>
-              <dt>  Install Tivoli Business Systems Manager and appropriate patches on test or QA servers.</dt>
-              <dd>- due February 13th, 2019</dd>
-              <dt>Verify connectivity from production servers to the production LPAR, Tivoli Enterprise Console server, and console machines.</dt>
-              <dd>- due February 15th, 2019</dd>
-            </dl>
+            <ul>
+            <div className="main-task">
+              <li>Verify project budget</li>
+              <p>- due January 28th, 2019</p>
+              <p1><Link to="tasks/1">view</Link></p1>
+             </div> 
+             <div className="main-task"> 
+              <li>Finish part 3 of A4</li>
+              <p>- due January 29th, 2019</p>
+              <p1><Link to="tasks/1">view</Link></p1>
+              </div>
+              <div className="main-task">
+              <li>  Install Tivoli Business Systems Manager and appropriate patches on test or QA servers.</li>
+              <p>- due February 13th, 2019</p>
+              <p1><Link to="tasks/1">view</Link></p1>
+              </div>
+              <div className="main-task">
+              <li>Verify connectivity from production servers to the production LPAR, Tivoli Enterprise Console server, and console machines.</li>
+              <p>- due February 15th, 2019</p>
+              <p1><Link to="tasks/1">view</Link></p1>
+              </div>
+            </ul>
  
               
                
