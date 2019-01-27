@@ -13,15 +13,10 @@ function generatebuttons() {
     return arr.map((i) => {
         return generatenextbutton(i)
     })
-    // while (counter < num_of_orgs) {
-    //     next_org = org_array[counter];
-    //     generatenextbutton(counter);
-    //     counter = counter + 1;
-    // }
 }
 
 function generatenextbutton(counter){
-    return (<button className='organization_button'> {org_array[counter]} </button>);
+    return (<div> <div className="divider"/> <button className='organization_button'> {org_array[counter]} </button> </div>);
 }
 
 
@@ -32,8 +27,9 @@ class OrganizationsPage extends Component {
 
         return(
             <header>
-        <h1>All Organizations</h1>
                 <div className={'center-children'}>
+        <h1> All Organizations </h1>
+
                     {generatebuttons()}
                 </div>
             </header>

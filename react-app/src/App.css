@@ -116,6 +116,7 @@
     font-size: 32px;
     text-align: center;
     padding: 15px 15px;
+    display: block;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
@@ -131,4 +132,10 @@
 /* for centering inline */
 .center-children {
     text-align: center;
+}
+/* for distance between buttons */
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
 }
