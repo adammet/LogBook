@@ -93,7 +93,7 @@ class LogBookAPI {
 
 	//TODO
 	static async taskAddUser({email, task_id}) {
-		let {success, reason} = await OrganizationManager.organizationAddUser({email, org_id});
+		let {success, reason} = await TasksManager.taskAddUser({email, task_id});
 		let code = success ? 200 : 404;
 		let response = success ? {success} : reason;
 
