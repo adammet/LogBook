@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 var org_array = ['Edmund', 'Adam'];
 var counter = 0;
-var num_of_orgs = org_array.length; //added the negative 1 because otherwise get blank button, delete if it gets fucky
+var num_of_orgs = org_array.length;
 var next_org;
 
 function generatebuttons() {
