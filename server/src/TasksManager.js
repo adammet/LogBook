@@ -1,6 +1,6 @@
 var mysql = require('promise-mysql');
 
-class TaskManager {
+class TasksManager {
 
 	static async getTaskInfo({task_id}) {
 		let connection;
@@ -30,7 +30,6 @@ class TaskManager {
 				var result = connection.query(sql);
 				return result;
 			}).then(function(rows) {
-				console.log("in");
 				success = true;
 				console.log(rows);
 			}).catch(function(err) {
@@ -57,4 +56,4 @@ class TaskManager {
 }
 
 
-module.exports = TaskManager;
+module.exports = TasksManager;
