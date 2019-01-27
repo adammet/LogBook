@@ -1,10 +1,10 @@
 class LogBookAPI {
 
-	static async getUserInfo({user_id}) {
-		let (success, reason, name, email, teams, organizations, tasks) = await UsersManager.getUserInfo({user_id});
+	static async getUserInfo({email}) {
+		let (success, reason, name, teams, organizations, tasks) = await UsersManager.getUserInfo({email});
 		let code = success ? 200 : 404;
-		let response = success ? {name, email, teams, organizations, tasks} : reason; 
-		
+		let response = success ? {name, teams, organizations, tasks} : reason; 
+
 		return {response, code};
 	}
 
