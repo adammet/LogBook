@@ -60,6 +60,14 @@ app.get('/getTeamInfo', function (req, res) {
 	});
 });
 
+app.get('/getTeamMembers', function (req, res) {
+	LogBookAPI.getTeamMembers(req.body).then(({response, code}) => {
+		res.status(code).send(response);
+	}).catch((err) => {
+		res.status(404).send(err);
+	});
+});
+
 app.get('/getTeamTasks', function (req, res) {
 	LogBookAPI.getTeamTasks(req.body).then(({response, code}) => {
 		res.status(code).send(response);

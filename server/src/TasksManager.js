@@ -29,15 +29,16 @@ class TasksManager {
 				connection = conn;
 				var result = connection.query(sql);
 				return result;
-			}).then(function(rows) {
+			}).then(async function(rows) {
 				success = true;
 				description = rows[0]['description'];
 				due_date = rows[0]['due_date'];
 				status = rows[0]['status'];
 				weight = rows[0]['weight'];
 				name = rows[0]['name'];
-				team = rows[0]['team'];
 				assigned = rows[0]['assigned'];
+				var r = await connection.query("SELECT name FROM Team WHERE team_id = " + rows[0]['team']);
+				team = r[0]['name'];
 			}).catch(function(err) {
 				throw err;
 			});

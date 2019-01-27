@@ -1,5 +1,6 @@
 const UsersManager = require('./UsersManager.js');
 const TasksManager = require('./TasksManager.js');
+const TeamsManager = require('./TeamsManager.js');
 
 class LogBookAPI {
 
@@ -22,10 +23,15 @@ class LogBookAPI {
 	static async getTeamInfo({team_id}) {
 		let {success, reason, name, organization} = await TeamsManager.getTeamInfo({team_id});
 		let code = success ? 200 : 404;
-		if (success) {
-			let {members} = await TeamsManager.getMembers({team_id});
-		}
-		let response = success ? {name, organization, members} : reason;
+		let response = success ? {name, organization} : reason;
+
+		return {response, code};
+	}
+
+	static async getTeamMembers({team_id}) {
+		let {success, reason, members} = await TeamsManager.getTeamMembers({team_id});
+		let code = success ? 200 : 404;
+		let response = success ? {members} : reason;
 
 		return {response, code};
 	}

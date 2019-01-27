@@ -1,27 +1,34 @@
-var mysql = require('mysql');
+var mysql = require('promise-mysql');
 
-class TeamManager {
-    static async getTeam({team_id}) {
+class TeamsManager {
+	static async getTeamMembers({team_id}) {
+	    let members = [];
+	    let connection;
+	    let success = false;
+	    let reason;
+
         try {
-			var con = mysql.createConnection({
+			var config = {
 				host: "sql3.freemysqlhosting.net",
 				user: "sql3275907",
 				password: "ZQndVahfzs",
 				database: "sql3275907",
 				port: 3306
-			});
-
-			con.connect(function(err) {
-				if (err) throw err;
-				console.log("Connection successful");
-			});
-
-			var sql = "SELECT * FROM team WHERE team_id = " + team_id;
-
-			var team_id;
-			con.query(sql, function (err, result) {
-				if (err) throw err;
-				team_id = result.length + 1
+			};
+			await mysql.createConnection(config).then(async function(conn) {
+				connection = conn;
+				var res = await connection.query("SELECT * FROM TeamMembers WHERE team = " + team_id);
+				return res;
+			}).then(async function(res) {
+				success = true;
+				for (var i = 0; i < res.length; i++) {
+					var r = await connection.query("SELECT name FROM Users WHERE email = '" + res[i]['email'] + "'");
+					if (r) {
+						members.push(r[0]['name']);
+					}
+				}
+			}).catch(function(err) {
+				throw err;
 			});
 			
 		} catch (err) {
@@ -31,19 +38,71 @@ class TeamManager {
 		} finally {
 			if (connection) {
 				try { 
-					connection.close();
+					connection.end();
+				} catch (err) {
+					console.error(err);
+				}
+			}
+		}
+		console.log(members);
+		return success ? {success, members} : reason;
+	}
+
+    static async getTeamInfo({team_id}) {
+    	let connection;
+    	let success = false;
+    	let name;
+        let organization;
+        let reason;
+        let members = [];
+
+        try {
+			var config = {
+				host: "sql3.freemysqlhosting.net",
+				user: "sql3275907",
+				password: "ZQndVahfzs",
+				database: "sql3275907",
+				port: 3306
+			};
+
+			await mysql.createConnection(config).then(async function(conn) {
+				connection = conn;
+				var res = await connection.query("SELECT * FROM Team WHERE team_id = " + team_id);
+				return res;
+			}).then(async function(res) {
+				success = true;
+				name = res[0]['name'];
+				var r = await connection.query("SELECT name FROM Organization WHERE org_id = " + res[0]['organization']);
+				organization = r[0]['name'];
+			}).catch(function(err) {
+				throw err;
+			});			
+		} catch (err) {
+			success = false;
+			reason = err;
+			console.log(err);
+		} finally {
+			if (connection) {
+				try { 
+					connection.end();
 				} catch (err) {
 					console.error(err);
 				}
 			}
 		}
 		console.log(success);
-		return {success, reason, team_id, name, organization};
+		return success ? {success, name, members, organization} : reason;
 	}
+
+
 	
 	static async createTeam({name, organization}) {
+		let connection;
+		let success = false;
+		let reason;
+
 		try {
-			var con = mysql.createConnection({
+			var config = mysql.createConnection({
 				host: "sql3.freemysqlhosting.net",
 				user: "sql3275907",
 				password: "ZQndVahfzs",
@@ -76,16 +135,17 @@ class TeamManager {
 			reason = err;
 			console.log(err);
 		} 
-		// finally {
-		// 	if (con) {
-		// 		try { 
-		// 			con.close();
-		// 		} catch (err) {
-		// 			console.error(err);
-		// 		}
-		// 	}
-		// }
+		finally {
+			if (con) {
+				try { 
+					connection.end();
+				} catch (err) {
+					console.error(err);
+				}
+			}
+		}
+		return success ? {success, name, organization} : {success, reason};
 	}
 }
 
-TeamManager.createTeam("rand", "rando");
+module.exports = TeamsManager; 
