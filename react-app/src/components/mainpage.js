@@ -12,7 +12,7 @@ class MainPage extends Component {
         <div className="home-vertical">
             <li><Link to="/organizations" > Organizations</Link></li>
             <li><Link to="/tasks"> Tasks </Link></li>
-            <li><Link to="/user"> User </Link></li>
+            <li><Link to="/settings"> Settings </Link></li>
             <li><Link to="/"> LogOut </Link></li>
           </div>
       </ul>
