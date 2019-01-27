@@ -54,7 +54,6 @@ class TeamsManager {
     	let name;
         let organization;
         let reason;
-        let members = [];
 
         try {
 			var config = {
@@ -91,10 +90,52 @@ class TeamsManager {
 			}
 		}
 		console.log(success);
-		return success ? {success, name, members, organization} : reason;
+		return success ? {success, name, organization} : reason;
 	}
 
+	    static async getTeamTasks({team_id}) {
+    	let connection;
+    	let success = false;
+        let reason;
+        let tasks = [];
 
+        try {
+			var config = {
+				host: "sql3.freemysqlhosting.net",
+				user: "sql3275907",
+				password: "ZQndVahfzs",
+				database: "sql3275907",
+				port: 3306
+			};
+
+			await mysql.createConnection(config).then(async function(conn) {
+				connection = conn;
+				var res = await connection.query("SELECT * FROM Task WHERE team = " + team_id);
+				return res;
+			}).then(async function(res) {
+				success = true;
+				for (var i = 0; i < res.length; i++) {
+					tasks.push(res[i]);
+				}
+			}).catch(function(err) {
+				throw err;
+			});			
+		} catch (err) {
+			success = false;
+			reason = err;
+			console.log(err);
+		} finally {
+			if (connection) {
+				try { 
+					connection.end();
+				} catch (err) {
+					console.error(err);
+				}
+			}
+		}
+		console.log(success);
+		return success ? {success, tasks} : reason;
+	}
 	
 	static async createTeam({name, organization}) {
 		let connection;

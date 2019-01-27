@@ -58,91 +58,99 @@ var sql;
 // });
 
 // INSERT DUMMY DATA
-sql = "INSERT INTO Users (email, name, password) VALUES ('edmund@idiot.com', 'Edmund', 'password')";
+// sql = "INSERT INTO Users (email, name, password) VALUES ('edmund@idiot.com', 'Edmund', 'password')";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO Users (email, name, password) VALUES ('adam@idiot.com', 'Adam', 'password')";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO Users (email, name, password) VALUES ('morgan@idiot.com', 'Morgan', 'password')";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO Users (email, name, password) VALUES ('abduraman@idiot.com', 'Abduraman', 'password')";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO Organization (org_id, description, name) VALUES (1,'dummy org 1','Dummy Org 1')";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO Organization (org_id, description, name) VALUES (2,'dummy org 2','Dummy Org 2')";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO Team (team_id, name, organization) VALUES (1,'dummy team 1', 1)";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO Team (team_id, name, organization) VALUES (2,'dummy team 2', 1)";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO TeamMembers (email, team) VALUES ('edmund@idiot.com',1)";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO TeamMembers (email, team) VALUES ('abduraman@idiot.com',1)";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO TeamMembers (email, team) VALUES ('morgan@idiot.com',2)";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO TeamMembers (email, team) VALUES ('adam@idiot.com',2)";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO Task (task_id, description, status, weight, name, team, assigned) VALUES (1, 'ss', 'open', 3, 'task 1', 1, 'edmund@idiot.com')";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO Task (task_id, description, status, weight, name, team, assigned) VALUES (2, 'aa', 'in progress', 4, 'task 2', 2, 'adam@idiot.com')";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO UserTasks (email, task) VALUES ('adam@idiot.com',2)";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO UserTasks (email, task) VALUES ('edmund@idiot.com',1)";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO OrganizationTeams (team, organization) VALUES (1,1)";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO OrganizationTeams (team, organization) VALUES (2,1)";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO OrganizationMembers (organization, email) VALUES (1,'adam@idiot.com')";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO OrganizationMembers (organization, email) VALUES (1,'edmund@idiot.com')";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO OrganizationMembers (organization, email) VALUES (1,'morgan@idiot.com')";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+// sql = "INSERT INTO OrganizationMembers (organization, email) VALUES (1,'abduraman@idiot.com')";
+// con.query(sql, function (err, result) {
+// 	if (err) console.log(err);
+// });
+sql = "INSERT INTO Task (task_id, description, status, weight, name, team, assigned) VALUES (3, 'oijasd', 'in progress', 3, 'task 3', 1, 'edmund@idiot.com')";
 con.query(sql, function (err, result) {
 	if (err) console.log(err);
 });
-sql = "INSERT INTO Users (email, name, password) VALUES ('adam@idiot.com', 'Adam', 'password')";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO Users (email, name, password) VALUES ('morgan@idiot.com', 'Morgan', 'password')";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO Users (email, name, password) VALUES ('abduraman@idiot.com', 'Abduraman', 'password')";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO Organization (org_id, description, name) VALUES (1,'dummy org 1','Dummy Org 1')";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO Organization (org_id, description, name) VALUES (2,'dummy org 2','Dummy Org 2')";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO Team (team_id, name, organization) VALUES (1,'dummy team 1', 1)";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO Team (team_id, name, organization) VALUES (2,'dummy team 2', 1)";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO TeamMembers (email, team) VALUES ('edmund@idiot.com',1)";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO TeamMembers (email, team) VALUES ('abduraman@idiot.com',1)";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO TeamMembers (email, team) VALUES ('morgan@idiot.com',2)";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO TeamMembers (email, team) VALUES ('adam@idiot.com',2)";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO Task (task_id, description, status, weight, name, team, assigned) VALUES (1, 'ss', 'open', 3, 'task 1', 1, 'edmund@idiot.com')";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO Task (task_id, description, status, weight, name, team, assigned) VALUES (2, 'aa', 'in progress', 4, 'task 2', 2, 'adam@idiot.com')";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO UserTasks (email, task) VALUES ('adam@idiot.com',2)";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO UserTasks (email, task) VALUES ('edmund@idiot.com',1)";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO OrganizationTeams (team, organization) VALUES (1,1)";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO OrganizationTeams (team, organization) VALUES (2,1)";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO OrganizationMembers (organization, email) VALUES (1,'adam@idiot.com')";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO OrganizationMembers (organization, email) VALUES (1,'edmund@idiot.com')";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO OrganizationMembers (organization, email) VALUES (1,'morgan@idiot.com')";
-con.query(sql, function (err, result) {
-	if (err) console.log(err);
-});
-sql = "INSERT INTO OrganizationMembers (organization, email) VALUES (1,'abduraman@idiot.com')";
+sql = "INSERT INTO Task (task_id, description, status, weight, name, team, assigned) VALUES (4, 'oija22sd', 'in progress', 4, 'task 4', 2, 'adam@idiot.com')";
 con.query(sql, function (err, result) {
 	if (err) console.log(err);
 });

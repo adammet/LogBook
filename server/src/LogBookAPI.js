@@ -50,7 +50,7 @@ class LogBookAPI {
 	}
 
 	static async getTeamTasks({team_id}) {
-		let {success, reason, tasks} = await TeamsManager.getTasks({team_id});
+		let {success, reason, tasks} = await TeamsManager.getTeamTasks({team_id});
 		let code = success ? 200 : 404;
 		let response = success ? {tasks} : reason;
 
