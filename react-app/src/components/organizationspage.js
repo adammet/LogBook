@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-var org_array = ['Google', 'Microsoft', 'UBC 2019 W1 CPSC 310', 'UBC 2019 W1 CPEN 221'];
+var org_array = ['Google', 'Microsoft', 'UBC 2019 W1 CPSC 343'];
 var num_of_orgs = org_array.length;
 
 function generatebuttons() {
@@ -34,9 +34,41 @@ class OrganizationsPage extends Component {
                 <li><Link to="/"> LogOut </Link></li>
               </div>
           </ul>  
-                
+          <div className="org-info">           
         <h1> Google </h1>
-                 
+        <div className='fade-in'>
+            <div className="row">
+
+            <div className="column">
+            <div className="org"><h2>Your Groups at Google</h2></div>
+              <div className="box">
+                <Link to="/organizations/google">
+                  <img src="https://blog.hubspot.com/hubfs/image8-2.jpg"></img>
+                <div className="detail">
+                <div className="text"> Project Management</div>
+                </div>
+                </Link>
+              </div>
+              <div className="box">
+                <Link to="/organizations/microsoft">
+                  <img src="https://blog.hubspot.com/hubfs/image8-2.jpg"></img>
+                    <div className="detail">
+                      <div className="text"> Human Resources </div>
+                    </div>
+                </Link>
+              </div>
+           
+              
+              
+            </div>
+            
+            
+          
+
+        
+        </div>
+        </div>
+                 </div>
             </header>
             )
         }
@@ -51,9 +83,33 @@ class OrganizationsPage extends Component {
                 <li><Link to="/"> LogOut </Link></li>
               </div>
           </ul>  
-                
+            <div className="org-info">      
         <h1> Microsoft </h1>
-                 
+        <div className='fade-in'>
+            <div className="row">
+
+            <div className="column">
+            <div className="org"><h2>Your Groups at Microsoft</h2></div>
+              <div className="box">
+                <Link to="/organizations/google">
+                  <img src="https://cdn.vox-cdn.com/thumbor/NeSo4JAqv-fFJCIhb5K5eBqvXG4=/7x0:633x417/1200x800/filters:focal(7x0:633x417)/cdn.vox-cdn.com/assets/1311169/mslogo.jpg"></img>
+                <div className="detail">
+                <div className="text"> QA Analysis</div>
+                </div>
+                </Link>
+              </div>
+           
+              
+              
+            </div>
+            
+            
+          
+
+        
+        </div>
+        </div>
+               </div>  
             </header>
             )
         }

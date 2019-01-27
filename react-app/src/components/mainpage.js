@@ -91,7 +91,7 @@ class MainPage extends Component {
              </div> 
              <div className="main-task"> 
               <li>Finish part 3 of A4</li>
-              <h3>UBC 2019 W1 CPSC 320</h3>
+              <h3>UBC 2019 W1 CPSC 343</h3>
               <p>- due January 29th, 2019</p>
               <p1><Link to="tasks/2">view</Link></p1>
               </div>
