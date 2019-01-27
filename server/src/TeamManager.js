@@ -15,7 +15,7 @@ class TeamsManager {
 				console.log("Connection successful");
 			});
 
-			var sql = "SELECT team_id FROM team" + team_id;
+			var sql = "SELECT * FROM team WHERE team_id = " + team_id ;
 			var team_id;
 			con.query(sql, function (err, result) {
 				if (err) throw err;
@@ -53,7 +53,7 @@ class TeamsManager {
 				console.log("Connection successful");
 			});
 
-			var teams_query = "SELECT team_id FROM team = " + team_id;
+			var teams_query = "SELECT team_id FROM team";
 			var team_id;
 			con.query(teams_query, function (err, result) {
 				if (err) throw err;
