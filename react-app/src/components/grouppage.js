@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Line, Circle } from 'rc-progress';
 
 class GroupPage extends Component {
-  
+
   render() {
     if (this.props.match.params.id == "g-pm"){
     return(
@@ -17,37 +18,44 @@ class GroupPage extends Component {
           </ul>   
         <div className='fade-in'>
             <div className="row">
-
-            <div className="column">
-            <div className="org"><h2>Top Organizations</h2></div>
-              <div className="box">
-                <Link to="/organizations/google">
-                  <img src="https://blog.hubspot.com/hubfs/image8-2.jpg"></img>
-                <div className="detail">
-                <div className="text"></div>
-                </div>
-                </Link>
-              </div>
-              <div className="box">
-                <Link to="/organizations/microsoft">
-                  <img src="https://cdn.vox-cdn.com/thumbor/NeSo4JAqv-fFJCIhb5K5eBqvXG4=/7x0:633x417/1200x800/filters:focal(7x0:633x417)/cdn.vox-cdn.com/assets/1311169/mslogo.jpg"></img>
-                    <div className="detail">
-                      <div className="text"></div>
-                    </div>
-                </Link>
-              </div>
-           
-              
-              
             </div>
-            
+
+
+            <div className='center'>
+            <h1> Google | Project Management </h1>
+            </div>
+
+            <div className='row_group'>
             <div className="column">
-            
-            
+                <div className="box">
+                    <h2>Your Contributions</h2>
+                    <ul>
+                        <div className="main-task">
+                            <li>Create Gantt Chart: 4 Points</li>
+                            <h3>Complete</h3>
+
+                        </div>
+                        <div className="main-task">
+                            <li>Find Critical Path: 1 Point</li>
+                            <h3>Complete</h3>
+                        </div>
+                        <div className="main-task">
+                            <li> Verify Project Budget: 25 Points </li>
+                            <h3>Incomplete</h3>
+
+                            <p1><Link to="tasks/3">view progress</Link></p1>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+            <div className="column">
               <div className="box">
-
                <h2>Group Members</h2>
-
             <ul>
             <div className="main-task">
               <li>Wayne Glensky</li>
@@ -74,29 +82,15 @@ class GroupPage extends Component {
               <p1><Link to="tasks/4">grade</Link></p1>
               </div>
             </ul>
- 
-              
-               
-
-             
-             
             </div>
-            
-              
-              
+            </div>
 
-             
-             
-             
-            </div>  
-            
-          
-
-        
+                <div>
+                    <h2> Your Total Point Progress: 5/50 Points</h2>
+                    <Line percent="10" strokeWidth="4" strokeColor="#D3D3D3"/>
+                </div>
         </div>
-        </div>
-            
-            
+      </div>
      </header>
     )
   }

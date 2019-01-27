@@ -19,6 +19,7 @@
   "dependencies": {
     "mssql": "^4.3.0",
     "mysql": "^2.16.0",
-    "promise-mysql": "^3.3.1"
+    "promise-mysql": "^3.3.1",
+    "rc-progress": "^2.3.0"
   }
 }
