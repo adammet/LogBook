@@ -1,4 +1,4 @@
-var mysql = require('mysql');
+var mysql = require('promise-mysql');
 
 class UsersManager {
 
@@ -12,30 +12,28 @@ class UsersManager {
 		let tasks;
 
 		try {
-			var con = mysql.createConnection({
+			var config = {
 				host: "sql3.freemysqlhosting.net",
 				user: "sql3275907",
 				password: "ZQndVahfzs",
 				database: "sql3275907",
 				port: 3306
-			});
+			};
 
-			con.connect(function(err) {
-				if (err) throw err;
-				console.log("Connection successful");
-			});
+			var sql = "SELECT * FROM Users WHERE email='" + email + "'";
 
-			var sql = "SELECT * FROM Users WHERE email='${email}'";
-
-			con.query(sql, function (err, result) {
-				if (err) throw err;
+			await mysql.createConnection(config).then(function(conn) {
+				connection = conn;
+				var result = connection.query(sql);
+				return result;
+			}).then(function(rows) {
 				success = true;
-				name = result.name;
-				teams = result.teams;
-				organizations = result.organizations;
-				tasks = result.tasks;
-				console.log(result.name);
+				name = rows[0]['name'];
+			}).catch(function(err) {
+				throw err;
 			});
+
+			
 		} catch (err) {
 			success = false;
 			reason = err;
@@ -43,14 +41,14 @@ class UsersManager {
 		} finally {
 			if (connection) {
 				try {
-					connection.close();
+					connection.end();
 				} catch (err) {
 					console.error(err);
 				}
 			}
 		}
 		console.log(success);
-		return {success, reason, name, email, teams, organizations, tasks};
+		return success ? {success, name, teams, organizations, tasks} : {success, reason};
 	}
 }
 

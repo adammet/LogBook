@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/adammet/LogBook#readme",
   "dependencies": {
-    "mysql": "^2.16.0"
+    "mssql": "^4.3.0",
+    "mysql": "^2.16.0",
+    "promise-mysql": "^3.3.1"
   }
 }
