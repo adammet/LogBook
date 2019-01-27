@@ -1,7 +1,7 @@
-var connection = require('Connection');
+var mysql = require('mysql');
 
-class TaskManager {
-    static async getTask({task_id}) {
+class TasksManager {
+    static async getTaskInfo({task_id}) {
         let description;
         let due_date;
         let status;
@@ -94,3 +94,5 @@ class TaskManager {
 		}
 	}
 }
+
+module.exports = TasksManager;

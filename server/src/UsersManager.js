@@ -25,7 +25,7 @@ class UsersManager {
 				console.log("Connection successful");
 			});
 
-			var sql = "SELECT * FROM users WHERE email = " + email;
+			var sql = "SELECT * FROM Users WHERE email='${email}'";
 
 			con.query(sql, function (err, result) {
 				if (err) throw err;
@@ -34,6 +34,7 @@ class UsersManager {
 				teams = result.teams;
 				organizations = result.organizations;
 				tasks = result.tasks;
+				console.log(result.name);
 			});
 		} catch (err) {
 			success = false;

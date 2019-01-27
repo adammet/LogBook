@@ -27,6 +27,7 @@ app.use('/', express.static(STATIC_ROOT));			// Serve STATIC_ROOT at URL "/" as 
 app.listen(PORT, function(){
     console.log('Express.js server started, listening on PORT '+ PORT);
 });
+
 app.get('/getUserInfo', function (req, res) {
 	LogBookAPI.getUserInfo(req.body).then(({response, code}) => {
 		res.status(code).send(response);
