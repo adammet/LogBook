@@ -16,7 +16,8 @@ class TeamManager {
 				console.log("Connection successful");
 			});
 
-			var sql = "SELECT team_id FROM team"
+			var sql = "SELECT * FROM team WHERE team_id = " + team_id;
+
 			var team_id;
 			con.query(sql, function (err, result) {
 				if (err) throw err;

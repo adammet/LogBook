@@ -18,10 +18,10 @@ class LogBookAPI {
 
 	static async getTeamInfo({team_id}) {
 		let {success, reason, name, organization} = await TeamsManager.getTeamInfo({team_id});
+		let code = success ? 200 : 404;
 		if (success) {
 			let {members} = await TeamsManager.getMembers({team_id});
 		}
-		let code = success ? 200 : 404;
 		let response = success ? {name, organization, members} : reason;
 
 		return {response, code};
@@ -33,9 +33,20 @@ class LogBookAPI {
 		if (success) {
 			let {members} = await OrganizationManger.getMembers({org_id});
 			let {admin} = await OrganizationmManager.getAdmin({org_id});
+			let {teams} = await OrganizationmManager.getTeams({org_id});
 		}
 		let response = success ? {name, description, members, admin} : reason;
 
 		return {response, code};
 	}
+
+	static async getTeamTasks({team_id}) {
+		let {success, reason, tasks} = await TeamsManager.getTasks({team_id});
+		let code = success ? 200 : 404;
+		let response = success ? {tasks} : reason;
+
+		return {response, code};
+	}
+
+
 }
