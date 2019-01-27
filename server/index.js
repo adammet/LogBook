@@ -92,3 +92,48 @@ app.post('/createTeam', function (req, res) {
 	});
 });
 
+//TODO
+app.post('/teamAddUser', function (req, res) {
+	LogBookAPI.teamAddUser(req.body).then(({response, code}) => {
+		res.status(code).send(response);
+	}).catch((err) => {
+		res.status(404).send(err);
+	});
+});
+
+//TODO
+app.post('/organizationAddUser', function (req, res) {
+	LogBookAPI.organizationAddUser(req.body).then(({response, code}) => {
+		res.status(code).send(response);
+	}).catch((err) => {
+		res.status(404).send(err);
+	});
+});
+
+//TODO
+app.post('/taskAddUser', function (req, res) {
+	LogBookAPI.taskAddUser(req.body).then(({response, code}) => {
+		res.status(code).send(response);
+	}).catch((err) => {
+		res.status(404).send(err);
+	});
+});
+
+//TODO
+app.post('/createOrganization', function (req, res) {
+	LogBookAPI.createOrganization(req.body).then(({response, code}) => {
+		res.status(code).send(response);
+	}).catch((err) => {
+		res.status(404).send(err);
+	});
+});
+
+//TODO
+app.post('/createTask', function (req, res) {
+	LogBookAPI.createTask(req.body).then(({response, code}) => {
+		res.status(code).send(response);
+	}).catch((err) => {
+		res.status(404).send(err);
+	});
+});
+

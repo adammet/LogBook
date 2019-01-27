@@ -109,6 +109,15 @@ class LogBookAPI {
 		return {response, code};
 	}
 
+	//TODO
+	static async createTask({description, due_date, status, weight, name, team, assigned}) {
+		let {success, reason} = await TasksManager.createTask({description, due_date, status, weight, name, team, assigned});
+		let code = success ? 200 : 404;
+		let response = success ? {success} : reason;
+
+		return {response, code};
+	}
+
 
 
 }
