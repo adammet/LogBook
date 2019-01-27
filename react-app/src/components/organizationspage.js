@@ -14,7 +14,7 @@ function generatebuttons() {
 }
 //
 function generatenextbutton(counter){
-    return (<div> <div className="divider"/> <button className='organization_button'> {org_array[counter]} </button> </div>);
+    return (<div> <div className="divider"/> <button className='standard_button'> {org_array[counter]} </button> </div>);
 }
 
 
@@ -25,7 +25,7 @@ class OrganizationsPage extends Component {
         return(
             <header>
                 <div className={'center'}>
-        <h1> All Organizations </h1>
+        <h1 className = {'headerfont'}> All Organizations </h1>
                     {generatebuttons()}
                 </div>
             </header>
