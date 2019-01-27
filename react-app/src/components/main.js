@@ -8,7 +8,7 @@ import OrganizationsPage from "./organizationspage";
 const Main = () => (
 	<HashRouter>
 			<Switch>
-				<Route exact path="/" component={OrganizationsPage} />
+				<Route exact path="/" component={HomePage} />
 				<Route exact path="/main" component={MainPage} />
 				<Route exact path="/main" component={OrganizationsPage} />
 			</Switch>
