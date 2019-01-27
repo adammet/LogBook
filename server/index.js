@@ -83,3 +83,12 @@ app.post('/createUser', function (req, res) {
 		res.status(404).send(err);
 	});
 });
+
+app.post('/createTeam', function (req, res) {
+	LogBookAPI.createTeam(req.body).then(({response, code}) => {
+		res.status(code).send(response);
+	}).catch((err) => {
+		res.status(404).send(err);
+	});
+});
+

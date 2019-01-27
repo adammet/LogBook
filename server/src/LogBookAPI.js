@@ -65,6 +65,15 @@ class LogBookAPI {
 		return {response, code};
 	}
 
+	static async createTeam({name, organization}) {
+		let {success, reason} = await TeamsManager.createTeam({name, organization});
+		let code = success ? 200 : 404;
+		let response = success ? {success} : reason;
+
+		return {response, code};
+	}
+
+
 
 }
 

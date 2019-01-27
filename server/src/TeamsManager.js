@@ -139,53 +139,48 @@ class TeamsManager {
 	
 	static async createTeam({name, organization}) {
 		let connection;
-		let success = false;
 		let reason;
+		let success = false;
 
 		try {
-			var config = mysql.createConnection({
+			if (!name) {
+				throw new Error("No name");
+			}
+
+			var config = {
 				host: "sql3.freemysqlhosting.net",
 				user: "sql3275907",
 				password: "ZQndVahfzs",
 				database: "sql3275907",
 				port: 3306
-			});
+			};
 
-			con.connect(function(err) {
-				if (err) throw err;
-				console.log("Connection successful");
-			});
-
-			var team_id;
-			var teams_query = "SELECT team_id FROM team";
-			con.query(teams_query, function (err, result) {
-				if (err) throw err;
-				team_id = result.length + 1
-				console.log("Next team id: " + team_id);
-			});
-			console.log(teams_query);
-
-			var write_query = "INSERT INTO * teams VALUES " + "(" + team_id + "," + name + "," + organization + ")";
-
-			con.query(write_query, function (err, result) {
-				if (err) throw err;
-				console.log("Created team");
+			await mysql.createConnection(config).then(async function(conn) {
+				connection = conn;
+				var teamid = await connection.query("SELECT MAX(team_id) from Team");
+				let id = teamid[0]['MAX(team_id)'] + 1;
+				var res = await connection.query("INSERT INTO Team (name, organization, team_id) VALUES ('" + name + "', "+ organization + ", " + id + ")");
+				if (res) {
+					success = true;
+				}
+			}).catch(function(err) {
+				throw err;
 			});
 		} catch (err) {
 			success = false;
 			reason = err;
 			console.log(err);
-		} 
-		finally {
-			if (con) {
-				try { 
+		} finally {
+			if (connection) {
+				try {
 					connection.end();
 				} catch (err) {
 					console.error(err);
 				}
 			}
 		}
-		return success ? {success, name, organization} : {success, reason};
+		console.log(success);
+		return success ? {success} : {success, reason};
 	}
 }
 
