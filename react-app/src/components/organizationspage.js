@@ -22,19 +22,15 @@ function generatenextbutton(counter){
 
 
 class OrganizationsPage extends Component {
-
     render() {
 
         return(
             <header>
-                <div className={'center-children'}>
+                <div className={'center'}>
         <h1> All Organizations </h1>
-
                     {generatebuttons()}
                 </div>
             </header>
-
-
         )
     }
 }
