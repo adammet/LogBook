@@ -73,6 +73,42 @@ class LogBookAPI {
 		return {response, code};
 	}
 
+	//TODO
+	static async teamAddUser({email, team_id}) {
+		let {success, reason} = await TeamsManager.teamAddUser({email, team_id});
+		let code = success ? 200 : 404;
+		let response = success ? {success} : reason;
+
+		return {response, code};
+	}
+	
+	//TODO
+	static async organizationAddUser({email, org_id}) {
+		let {success, reason} = await OrganizationManager.organizationAddUser({email, org_id});
+		let code = success ? 200 : 404;
+		let response = success ? {success} : reason;
+
+		return {response, code};
+	}
+
+	//TODO
+	static async taskAddUser({email, task_id}) {
+		let {success, reason} = await OrganizationManager.organizationAddUser({email, org_id});
+		let code = success ? 200 : 404;
+		let response = success ? {success} : reason;
+
+		return {response, code};
+	}
+
+	//TODO
+	static async createOrganization({email, name, description}) {
+		let {success, reason} = await OrganizationManager.createOrganization({email, name, description});
+		let code = success ? 200 : 404;
+		let response = success ? {success} : reason;
+
+		return {response, code};
+	}
+
 
 
 }
