@@ -145,14 +145,15 @@
     height: 300px;
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 15%;
     margin-left: -150px;
-    margin-top: -150px;
+    
 }
 
 .headerfont{
     font-size: 35px;
     font-family: 'Roboto', sans-serif;
+    margin-top: 10%;
 }
 
 .row img
@@ -244,7 +245,7 @@
 
 .main-task li
 {
-  font-size: 20px;
+  font-size: 16px;
 }
 .main-task p
 {
@@ -268,5 +269,13 @@
 {
   margin-bottom: 10%;
   top: 1%;
+}
+
+.edit-info
+{
+  padding-left: 45%;
+  padding-right: 50%;
+  padding-top: 8%;
+  font-size: 28px;
 }
 

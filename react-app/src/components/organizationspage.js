@@ -27,7 +27,7 @@ class OrganizationsPage extends Component {
                 <ul className="home-main-nav">
             <div className="home-vertical">
                 <li><Link to="/organizations/main" > Organizations</Link></li>
-                <li><Link to="/tasks"> Tasks </Link></li>
+                <li><Link to="/tasks/main"> Tasks </Link></li>
                 <li><Link to="/settings"> Settings </Link></li>
                 <li><Link to="/"> LogOut </Link></li>
               </div>
@@ -44,7 +44,7 @@ class OrganizationsPage extends Component {
                 <ul className="home-main-nav">
             <div className="home-vertical">
                 <li><Link to="/organizations/main" > Organizations</Link></li>
-                <li><Link to="/tasks"> Tasks </Link></li>
+                <li><Link to="/tasks/main"> Tasks </Link></li>
                 <li><Link to="/settings"> Settings </Link></li>
                 <li><Link to="/"> LogOut </Link></li>
               </div>
@@ -62,7 +62,7 @@ class OrganizationsPage extends Component {
             <ul className="home-main-nav">
             <div className="home-vertical">
                 <li><Link to="/main" > Main</Link></li>
-                <li><Link to="/tasks"> Tasks </Link></li>
+                <li><Link to="/tasks/main"> Tasks </Link></li>
                 <li><Link to="/settings"> Settings </Link></li>
                 <li><Link to="/"> LogOut </Link></li>
               </div>
