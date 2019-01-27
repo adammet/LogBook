@@ -7,7 +7,7 @@ import HomePage from './homepage';
 const Main = () => (
 	<HashRouter>
 			<Switch>
-				<Route exact path="/" component={HomePage} />
+				<Route exact path="/" component={MainPage} />
 				
 			</Switch>
 	</HashRouter>	
