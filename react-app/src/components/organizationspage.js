@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-var org_array = ['Edmund', 'Adam'];
+var org_array = ['Organization 1', 'Organization 2'];
 var num_of_orgs = org_array.length;
 
 function generatebuttons() {
