@@ -106,10 +106,21 @@
   color: white;
 }
 
-.buttonAdam {
+.organization_button {
     background: white;
-    border-radius:8px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 100%;
+    border: solid;
+    border-radius: 8px;
     color: black;
     font-size: 32px;
     text-align: right;
+}
+/* for centering block level */
+.center-me {
+    margin: 0 auto;
+}
+/* for centering inline */
+.center-children {
+    text-align: center;
 }
